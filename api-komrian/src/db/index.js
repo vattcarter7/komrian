@@ -1,35 +1,18 @@
-const { Pool } = require('pg');
-const chalk = require('chalk');
+const mongoose = require('mongoose');
 
-let dbConfig = {};
-
-if (process.env.NODE_ENV === 'production') {
-  dbConfig = {
-    connectionString: process.env.DATABASE_URL
-  };
-} else {
-  dbConfig = {
-    user: 'postgres',
-    password: '111',
-    host: 'localhost',
-    database: 'booking',
-    port: 5432
-  };
-}
-
-const pool = new Pool(dbConfig);
-
-module.exports = {
-  query(sql, params) {
-    return new Promise((resolve, reject) => {
-      pool
-        .query(sql, params)
-        .then((res) => {
-          resolve(res);
-        })
-        .catch((err) => {
-          reject(err);
-        });
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URI, {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+      useCreateIndex: true
     });
+
+    console.log(`MongoDB Connected: ${conn.connection.host}`.cyan.underline);
+  } catch (error) {
+    console.error(`Error: ${error.message}`.red.underline.bold);
+    process.exit(1);
   }
 };
+
+module.exports = connectDB;

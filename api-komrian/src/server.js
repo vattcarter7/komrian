@@ -1,11 +1,16 @@
 const path = require('path');
 const express = require('express');
+const dotenv = require('dotenv');
 const morgan = require('morgan');
 require('colors');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const { notFound, errorHandler } = require('./middleware/errorMiddleware');
+const connectDB = require('./db');
 
-const errorHandler = require('./helpers/error');
+dotenv.config();
+
+connectDB();
 
 const app = express();
 
@@ -37,6 +42,7 @@ app.get('/api', (req, res) => {
 // Mount routers
 // app.use('/api/v1/auth', auth);
 
+app.use(notFound);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;

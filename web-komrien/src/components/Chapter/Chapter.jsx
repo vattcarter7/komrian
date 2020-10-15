@@ -1,12 +1,13 @@
 import React from 'react';
+import { v4 as uuidV4 } from 'uuid';
 import './Chapter.styles.scss';
 
 const items = [
-  { number: '1', title: '🇦🇷 Argentina' },
-  { number: '2', title: '🤩 YASS' },
-  { number: '3', title: '👩🏼‍💻 Tech Girl' },
-  { number: '4', title: '💋 Lipstick & Code' },
-  { number: '5', title: '💃🏼 Latina' }
+  { order: '0', id: uuidV4(), title: '🇦🇷 Argentina' },
+  { order: '1', id: uuidV4(), title: '🤩 YASS' },
+  { order: '2', id: uuidV4(), title: '👩🏼‍💻 Tech Girl' },
+  { order: '3', id: uuidV4(), title: '💋 Lipstick & Code' },
+  { order: '4', id: uuidV4(), title: '💃🏼 Latina' }
 ];
 
 const initialDnDState = {
@@ -78,6 +79,15 @@ const DragToReorderList = () => {
 
   const onDrop = (event) => {
     setList(dragAndDrop.updatedOrder);
+    console.log(dragAndDrop);
+
+    let newTempList = [];
+
+    dragAndDrop.updatedOrder.map((list, index) => {
+      return newTempList.push({ ...list, order: index });
+    });
+
+    console.log('newTempList', newTempList);
 
     setDragAndDrop({
       ...dragAndDrop,
@@ -96,8 +106,8 @@ const DragToReorderList = () => {
 
   // Not needed, just for logging purposes:
   React.useEffect(() => {
-    console.log('Dragged From: ', dragAndDrop && dragAndDrop.draggedFrom);
-    console.log('Dropping Into: ', dragAndDrop && dragAndDrop.draggedTo);
+    // console.log('Dragged From: ', dragAndDrop && dragAndDrop.draggedFrom);
+    // console.log('Dropping Into: ', dragAndDrop && dragAndDrop.draggedTo);
   }, [dragAndDrop]);
 
   React.useEffect(() => {
