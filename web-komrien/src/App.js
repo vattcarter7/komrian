@@ -1,18 +1,13 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import Chapter from './components/Chapter/Chapter';
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Switch>
+        <Route exact path='/chapter' component={Chapter} />
+      </Switch>
     </div>
   );
 }
