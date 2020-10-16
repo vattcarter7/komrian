@@ -4,7 +4,7 @@ const router = express.Router();
 
 const validateRequest = require('../middleware/validateRequest');
 
-const { registerUser } = require('../controllers/userController');
+const { registerUser, loginUser } = require('../controllers/userController');
 
 const { protect } = require('../middleware/authMiddleware');
 
@@ -22,6 +22,19 @@ router.post(
     validateRequest
   ],
   registerUser
+);
+
+router.post(
+  '/login',
+  [
+    check('email')
+      .trim()
+      .isEmail()
+      .withMessage('Please provided a valid email'),
+    check('password').not().isEmpty().withMessage('Password is required'),
+    validateRequest
+  ],
+  loginUser
 );
 
 module.exports = router;
