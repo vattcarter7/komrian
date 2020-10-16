@@ -7,7 +7,10 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 const connectDB = require('./db');
+
+// Routes
 const userRoutes = require('./routes/userRoutes');
+const lessonRoutes = require('./routes/lessonRoutes');
 
 dotenv.config();
 
@@ -28,6 +31,7 @@ app.use(cookieParser());
 app.use(cors());
 
 app.use('/api/users', userRoutes);
+app.use('/api/lessons', lessonRoutes);
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
