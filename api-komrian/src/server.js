@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 const connectDB = require('./db');
+const userRoutes = require('./routes/userRoutes');
 
 dotenv.config();
 
@@ -25,6 +26,8 @@ app.use(cookieParser());
 
 // Enable CORS
 app.use(cors());
+
+app.use('/api/users', userRoutes);
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
