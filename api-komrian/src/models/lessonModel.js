@@ -2,12 +2,13 @@ const mongoose = require('mongoose');
 
 const lessonSchema = mongoose.Schema(
   {
-    title: {
-      type: String,
-      required: true
+    sectionId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'Section'
     },
-    order: {
-      type: Number,
+    lessionTitle: {
+      type: String,
       required: true
     }
   },

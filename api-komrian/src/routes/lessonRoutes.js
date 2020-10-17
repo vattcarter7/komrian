@@ -8,6 +8,8 @@ const { addLesson } = require('../controllers/lessonController');
 
 const { protect } = require('../middleware/authMiddleware');
 
+// router.get('/', getCourseLesson)
+
 router.post(
   '/add',
   [
