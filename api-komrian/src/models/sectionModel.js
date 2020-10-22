@@ -11,9 +11,12 @@ const sectionSchema = mongoose.Schema(
       type: String,
       required: true
     },
+    sectionOrder: {
+      type: Number,
+      required: true
+    },
     lessons: [
       {
-        lessonOrder: { type: Number, required: true },
         lesson: {
           type: mongoose.Schema.Types.ObjectId,
           required: true,

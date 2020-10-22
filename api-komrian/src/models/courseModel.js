@@ -8,7 +8,6 @@ const courseSchema = mongoose.Schema(
     },
     sections: [
       {
-        sectionOrder: { type: Number, required: true },
         section: {
           type: mongoose.Schema.Types.ObjectId,
           required: true,
