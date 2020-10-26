@@ -1,0 +1,85 @@
+$primary: #687bf7;
+$secondary: salmon;
+
+main{
+	display: flex;
+	max-width: 450px;
+	margin: 0 auto;
+	align-items: flex-start;
+}
+
+// Animals Container
+.availableAnimals{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);	
+	grid-gap: 20px;
+	max-width: 200px;
+	margin: 20px auto 0;
+}
+
+// Draggable Animal
+.draggableThing{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 15px;
+	height: 40px;
+	border-radius: 5px;
+	color: ivory;
+	background-color: whitesmoke;
+	text-align: center;
+	font-family: sans-serif;
+	text-transform: uppercase;
+	font-size: 20px;
+	cursor: pointer;
+	box-shadow: 2px 2px 10px rgba($primary, 0);
+	transition: box-shadow 100ms linear;
+	
+	&:hover{
+		box-shadow: 2px 2px 20px rgba($primary, 1);
+	}
+	&::before{
+		content: attr(id)
+	}
+}
+
+.droppableArea{
+	background: black;
+	border: 2px solid $primary;
+	border-radius: 8px;
+	padding: 20px;
+	width: 215px;
+	margin: 20px auto;
+	position: relative;
+	transition: border-color 100ms linear;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+
+	p{
+		font-size: 15px;
+		justify-self: stretch;
+		flex-basis: 100%;
+		text-align: center;
+		pointer-events: none;
+		text-transform: uppercase;
+		font-family: sans-serif;
+		color: $primary;
+	}
+	&.activeDropArea{
+		border-color: $secondary;
+	}
+	.draggableThing{
+		color: white;
+		font-size: 50px;
+		margin-bottom: 20px;
+		box-shadow: none;
+		cursor: default;
+		background: none;
+		margin-top: 15px;
+		
+		  // This is so the drop area works when over the items as well as the parent div
+		pointer-events: none;
+		
+	}
+}
