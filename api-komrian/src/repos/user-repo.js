@@ -1,6 +1,5 @@
 const pool = require('../pool');
-const toCamelCase = require('./utils/to-camel-case');
-const { query } = require('../pool');
+const toCamelCase = require('../utils/to-camel-case');
 
 class UserRepo {
   static async find() {
