@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { v4 as uuidV4 } from 'uuid';
 import './Chapter.styles.scss';
 

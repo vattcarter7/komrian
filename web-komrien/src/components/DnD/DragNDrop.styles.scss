@@ -3,7 +3,9 @@ $secondary: salmon;
 
 main{
 	display: flex;
-	max-width: 450px;
+  max-width: 450px;
+  background: #1d1e21;
+  padding: 20px;
 	margin: 0 auto;
 	align-items: flex-start;
 }

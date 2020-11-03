@@ -16,7 +16,10 @@ const animals = [
   '🐒',
   '🐥',
   '🦄',
-  '🦊'
+  '🦊',
+  'a',
+  'b',
+  'c'
 ];
 
 // Thing to Drag
@@ -72,6 +75,7 @@ const DroppableArea = (props) => {
     // remove the highlight in the drop area
     e.target.classList.remove('activeDropArea');
   };
+
   return (
     <div
       className='droppableArea'
