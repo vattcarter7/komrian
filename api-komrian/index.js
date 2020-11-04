@@ -1,10 +1,10 @@
 const dotenv = require('dotenv');
 require('colors');
 
+dotenv.config();
+
 const app = require('./src/app');
 const pool = require('./src/pool');
-
-dotenv.config();
 
 pool
   .connect({
