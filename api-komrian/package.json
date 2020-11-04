@@ -13,8 +13,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "bcrypt": "^5.0.0",
     "colors": "^1.4.0",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dedent": "^0.7.0",
     "dotenv": "^8.2.0",
