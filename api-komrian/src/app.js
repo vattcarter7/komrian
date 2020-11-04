@@ -1,4 +1,5 @@
 const express = require('express');
+
 const usersRouter = require('./routes/users');
 
 module.exports = () => {
