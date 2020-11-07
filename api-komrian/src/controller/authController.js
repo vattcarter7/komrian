@@ -1,4 +1,3 @@
-const { promisify } = require('util');
 const asyncHandler = require('express-async-handler');
 
 const pool = require('../pool');
