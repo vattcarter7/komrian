@@ -3,7 +3,7 @@ const { check } = require('express-validator');
 
 const router = express.Router();
 
-const { addSection } = require('../controller/SectionController');
+const { addSection } = require('../controller/sectionController');
 const { protect } = require('../middleware/auth');
 const validateRequest = require('../middleware/validateRequest');
 
