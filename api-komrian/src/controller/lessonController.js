@@ -3,9 +3,9 @@ const asyncHandler = require('express-async-handler');
 const pool = require('../pool');
 
 // @desc      Create a lesson
-// @route     POST /api/v1/section
+// @route     POST /api/v1/lesson
 // @access    Private
-exports.addSection = asyncHandler(async (req, res, next) => {
+exports.addLesson = asyncHandler(async (req, res, next) => {
   const insertSql = `INSERT INTO section (name, section_id, lesson_order)
                      VALUES ($1, $2, $3) returning *`;
   const param = [
