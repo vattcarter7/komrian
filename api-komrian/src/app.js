@@ -5,7 +5,6 @@ const cors = require('cors');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 
 // Route files
-const usersRouter = require('./routes/users');
 const auth = require('./routes/authRoute');
 
 module.exports = () => {
@@ -27,7 +26,6 @@ module.exports = () => {
   });
 
   // Mount Routers
-  app.use(usersRouter);
   app.use('/api/v1/auth', auth);
 
   app.use(notFound);
