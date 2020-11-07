@@ -6,6 +6,7 @@ const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 
 // Route files
 const auth = require('./routes/authRoute');
+const course = require('./routes/courseRoute');
 
 module.exports = () => {
   const app = express();
@@ -27,6 +28,7 @@ module.exports = () => {
 
   // Mount Routers
   app.use('/api/v1/auth', auth);
+  app.use('/api/v1/course', course);
 
   app.use(notFound);
   app.use(errorHandler);

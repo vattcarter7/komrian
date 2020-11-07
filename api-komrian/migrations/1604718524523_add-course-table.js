@@ -6,7 +6,7 @@ exports.up = (pgm) => {
   pgm.sql(`
   CREATE TABLE course (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(250) NOT NULL,
+    name VARCHAR(250) UNIQUE NOT NULL,
     tokens TSVECTOR,
     active BOOLEAN DEFAULT true,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
