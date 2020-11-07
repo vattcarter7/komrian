@@ -7,6 +7,7 @@ const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 // Route files
 const auth = require('./routes/authRoute');
 const course = require('./routes/courseRoute');
+const lesson = require('./routes/lessonRoute');
 const section = require('./routes/sectionRoute');
 
 module.exports = () => {
@@ -30,6 +31,7 @@ module.exports = () => {
   // Mount Routers
   app.use('/api/v1/auth', auth);
   app.use('/api/v1/course', course);
+  app.use('/api/v1/lesson', lesson);
   app.use('/api/v1/section', section);
 
   app.use(notFound);

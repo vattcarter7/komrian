@@ -6,7 +6,7 @@ const pool = require('../pool');
 // @route     POST /api/v1/lesson
 // @access    Private
 exports.addLesson = asyncHandler(async (req, res, next) => {
-  const insertSql = `INSERT INTO section (name, section_id, lesson_order)
+  const insertSql = `INSERT INTO lesson (name, section_id, lesson_order)
                      VALUES ($1, $2, $3) returning *`;
   const param = [
     req.body.name.trim().toLowerCase(),
